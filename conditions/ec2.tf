@@ -1,6 +1,6 @@
 resource "aws_instance" "terraform" {
   ami                    = "ami-081b0a6eac00b4f53"
-  instance_type          = var.environment == "prod" ? "t3.small" : "t3.micro"
+  instance_type          = var.environment == "prod" ? "t3.small" : "t3.micro"  #condition here it was like if it is prod then it will take t3.small if not it will take t3.micro
   vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
 
   tags = {
