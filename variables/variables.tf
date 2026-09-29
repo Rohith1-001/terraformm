@@ -46,3 +46,7 @@ variable "ingress_cidr" {
     type = list(string)
     default = ["0.0.0.0/0"]
 }
+
+variable "tags_sgname" {
+    name = "backend_sg"
+}
