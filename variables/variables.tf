@@ -1,3 +1,9 @@
+# 1. Command line
+# 2. terraform.tfvars
+# 3. environment variables, TF_VAR_your_variable_name
+# 4. default
+# 5. prompt
+
 variable "ami_id" {
     type = string 
     default = "ami-081b0a6eac00b4f53"
