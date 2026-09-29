@@ -27,6 +27,6 @@ resource "aws_security_group" "allow_ssh_terraform" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = var.tags_sgname
+  tags = var.tags
 }
 
