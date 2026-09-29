@@ -48,5 +48,7 @@ variable "ingress_cidr" {
 }
 
 variable "tags_sgname" {
-    name = "backend_sg"
+    default = {
+        name = "backend_sg"
+    }
 }
