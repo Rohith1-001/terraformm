@@ -1,13 +1,12 @@
 resource "aws_instance" "expense" {
-  count = length(var.instance_names)
+  count = length(var.instance_names) #terraform length function
   ami                    = "ami-081b0a6eac00b4f53"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_ssh_terraform.id]
 
-
-  #tags = {
-   # Name = var.instance_names[count.index]
-  #}
+  # tags = {
+  #   Name = var.instance_names[count.index]
+  # }
 
   tags = merge(
     var.common_tags,
@@ -17,7 +16,7 @@ resource "aws_instance" "expense" {
   )
 }
 
- resource "aws_security_group" "allow_ssh_terraform" {
+resource "aws_security_group" "allow_ssh_terraform" {
   name        = "allow_ssh"
   description = "Allow port number 22 for SSH access"
 
@@ -37,7 +36,10 @@ resource "aws_instance" "expense" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "allow_ssh"
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "allow_ssh"
+    }
+  )
 }
